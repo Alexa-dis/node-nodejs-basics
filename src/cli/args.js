@@ -1,5 +1,9 @@
 const parseArgs = () => {
-    // Write your code here 
+    process.argv.map((el, i) => {
+        if (el.startsWith("--")) {
+            console.log(`${el.slice(2)} is ${process.argv[i + 1]}`)
+        }
+    })
 };
 
 parseArgs();
