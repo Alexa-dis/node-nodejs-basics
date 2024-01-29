@@ -27,8 +27,8 @@ const list = async () => {
       });
       console.log(files);
     } else {
-        throw new Error("FS operation failed");
-      }
+      throw new Error("FS operation failed");
+    }
   } catch (error) {
     console.log(error);
   }

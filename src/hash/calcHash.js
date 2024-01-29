@@ -4,8 +4,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const fileName = "fileToCalculateHashFor.txt";
-const fullPath = join(__dirname, "files", fileName);
+const fullPath = join(__dirname, "files", "fileToCalculateHashFor.txt");
 
 const hash = crypto.createHash("sha256");
 const fileStream = fs.createReadStream(fullPath);

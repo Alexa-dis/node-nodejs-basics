@@ -3,8 +3,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const fileName = "fileToRemove.txt";
-const fullPath = join(__dirname, "files", fileName);
+const fullPath = join(__dirname, "files", "fileToRemove.txt");
 
 const remove = async () => {
   try {

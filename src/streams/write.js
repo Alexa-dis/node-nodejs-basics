@@ -3,13 +3,12 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const fileName = "fileToWrite.txt";
-const fullPath = join(__dirname, "files", fileName);
+const fullPath = join(__dirname, "files", "fileToWrite.txt");
 
 const write = async () => {
-  const fileStream = fs.createWriteStream(fullPath);
+  const writeStream = fs.createWriteStream(fullPath);
   process.stdin.setEncoding("utf8");
-  process.stdin.pipe(fileStream);
+  process.stdin.pipe(writeStream);
 };
 
 await write();
