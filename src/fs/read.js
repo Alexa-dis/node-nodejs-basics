@@ -1,5 +1,31 @@
+import fs from "fs/promises";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const fullPath = join(__dirname, "files", "fileToRead.txt");
+
+async function isDirectoryExists(path) {
+  try {
+    await fs.access(path, fs.constants.F_OK);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
 const read = async () => {
-    // Write your code here 
+  const isFileExist = await isDirectoryExists(fullPath);
+  try {
+    if (isFileExist) {
+      const data = await fs.readFile(fullPath, "utf8");
+      console.log(data);
+    } else {
+      throw new Error("FS operation failed");
+    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 await read();
